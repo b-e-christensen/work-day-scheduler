@@ -1,13 +1,24 @@
-#text-area {
+.text-area {
     width: 100%;
     height: 75px;
 }
 
-.grey {
-    background-color: #333;
+
+.grey-border {
+    border: 2px lightgray solid;
+    border-left: none;
 }
 
-.lightGreen {
+.save-btn {
+    color: blue;
+    background-color: chartreuse;
+}
+
+.grey {
+    background-color: lightgray;
+}
+
+.light-green {
     background-color: lightgreen;
 }
 

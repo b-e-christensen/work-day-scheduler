@@ -29,41 +29,69 @@
 // https://momentjscom.readthedocs.io/en/latest/moment/05-query/03-is-after/
 
 
-$('#text-area').val(localStorage.getItem('9am'));
-var nine = $('#t9');
-nine = 9;
-console.log(nine);
-
+$('#a9').val(localStorage.getItem('9am'));
 $('#currentDay').text(moment().format("h:mm a"));
-console.log(moment());
-
-
-$('#save-btn').on('click', function(){
-    var textArea = $('#text-area').val();
-    localStorage.setItem('9am', textArea)
-})
 
 var currentTime = moment();
+var currentHour = currentTime.hour();
 
-console.log(currentTime.hour());
-console.log(currentTime.format("HH:mm a"))
+var nine = $('#t9');
+// nine = 9;
+var ten = $('#t10');
+// ten = 10;
+var eleven = $('#t11');
+// eleven = 11;
+var twelve = $('#t12');
+// twelve = 12;
+var thirteen = $('#t13');
+// thirteen = 13;
+var fourteen = $('#t14');
+// fourteen = 14;
+var fifteen = $('#t15');
+// fifteen = 15;
+var sixteen = $('#t16');
+// sixteen = 16;
+var seventeen = $('#a17');
+// seventeen = 17;
+var timeArr = [nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen];
 
-// console.log($('#t9').text());
+// can just use array. Take current hour and subtract 9 from it. if negative number do nothing. If zero or postive, take that number and use it as the index number to turn add class 'red.' then we make a for loop that starts just after that number and turns the rest of them green.
 
-if (nine < currentTime.hour()) {
-    console.log(true)
-} else {
-    console.log(false);
-}
+console.log(jQuery(seventeen))
+jQuery(seventeen).addClass('red')
+// $('textarea').addClass('light-green')
+// jQuery('textarea').addClass('red')
 
-function beforeOrAfter(element) {
-    if (element > currentTime.hour()) {
-        element.addClass('lightGreen');
-    } else if (element === currentTime.hour()) {
-        element.addClass('red')
+for (let i = 0; i < timeArr.length; i++) {
+    const element = timeArr[i];
+    if (element === currentHour) {
+        console.log(element + ' element should turn red');
+        jQuery(element).addClass('red')
+    } else if (element < currentHour){
+        console.log(element + ' element should turn grey');
     } else {
-        element.addClass('grey')
+        console.log(element + ' element should turn green');
     }
 }
 
-beforeOrAfter(nine)
+
+
+
+// will have to change id for these and do one for every button i suppose... 
+$('#btn-9').on('click', function(){
+    var textArea = $('#a9').val();
+    localStorage.setItem('9am', textArea)
+})
+
+
+
+
+// function beforeOrAfter(element) {
+//     if (element > currentTime.hour()) {
+//         element.addClass('lightGreen');
+//     } else if (element === currentTime.hour()) {
+//         element.addClass('red')
+//     } else {
+//         element.addClass('grey')
+//     }
+// }
