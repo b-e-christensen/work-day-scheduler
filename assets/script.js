@@ -99,15 +99,14 @@ $('#clear-17').on('click', function(){
 
 function colorFunction() {
     var colorHour = currentHour - 9;
-if (timeArr[colorHour] === undefined){
-    return;
-}
 
 if (colorHour < 0) {
     for (let i = 0; i < timeArr.length; i++) {
     const element = timeArr[i];
     (element).addClass('light-green')
     }
+} else if (timeArr[colorHour] === undefined){
+    return;
 } else {
     timeArr[colorHour].addClass('red');
     for (let i = colorHour + 1; i < timeArr.length; i++) {
